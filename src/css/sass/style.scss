@@ -1,0 +1,187 @@
+@import "reset";
+
+
+@mixin responsiv ($size){ 
+    @if $size == xs{
+    @media (max-width: 767px) {@content;}
+    }
+
+    @else if $size == sm {
+    @media (min-width: 768px) {@content;}
+}
+
+    @else if $size == md {
+    @media (min-width: 992px) {@content;}
+}
+
+    @else if $size == lg {
+    @media (min-width: 1200px) {@content;}
+
+}
+}
+$primary-color: #8d102e;
+$secondary-color: #8b4d5c;
+$third-color: #f1d9bd;
+$text-color: #333;
+
+%centertext{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+body{
+    color: $text-color;
+    background-color: lighten($secondary-color, 30%);
+    float: left;
+    width: 100%;
+}
+
+
+h1{
+    font-size: 4.0em;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    float: left;
+    color: $third-color;
+    @include responsiv(xs) {
+        font-size: 3.0em;
+        
+    }
+}    
+
+h2{
+    font-size: 3.0em;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    margin-bottom: 40px; 
+    @extend %centertext;
+    color: #f1d9bd;
+    text-align: center;
+
+}
+
+h3{
+    font-size: 2.0em;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    @extend %centertext;
+    text-align: center;
+}
+p{
+
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    margin-bottom: 20px;
+    width: 60%;
+    @extend %centertext;
+    @include responsiv(xs){
+        width: 100%;
+    }
+}
+
+header{
+    background-color: darken($primary-color, 10%);    
+    width: 100%;
+    height: 20%;
+    float: left;
+    margin-bottom: 100px;
+}
+
+
+
+nav{
+ 
+
+    ul{
+     
+        margin-top: 20px;
+        margin-bottom: 20px;
+        list-style: none;
+        float: left;
+        width: 50%;
+        text-align: center;
+        margin-left: 25%;
+        @include responsiv(xs){
+            width: 90%;
+            margin-left: 5%;
+        }
+    }
+        
+    
+
+    li{
+        color: $third-color;
+        display: inline;
+        font-size: 1.3em;
+        font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+        letter-spacing: 0.5px;
+    }
+
+
+    li:after{
+        margin: 10px;
+        content: "|";
+    }
+    li:last-child:after{
+        content: " ";
+    }
+    a{
+        text-decoration: none;
+    }
+        
+}       
+         
+main{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: left;
+    @include responsiv(xs){
+        width: 90%;
+        margin-left: 5%;
+    }
+
+}
+
+img{
+    width: 50%;
+    margin-left: 25%;
+    @include responsiv(xs){
+        width: 100%;
+        margin-left: 0%;
+    }
+    
+}
+
+.logo{
+    float: none;
+    width: 40%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 30%;
+    @include responsiv(xs) {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+
+
+footer{
+    margin-top: 5px;
+    height: 10%;
+    width: 100%;
+    background-color: darken($primary-color, 20%);
+    position: relative;
+    float: left;
+    
+    p{
+        width: 50px;
+        margin-top: 18px;
+        @extend %centertext;
+        color: $third-color;
+    }
+}
